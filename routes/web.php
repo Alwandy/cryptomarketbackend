@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/','CurrencyController@getCurrencyList', function () {
     return view('welcome');
+});
+
+Route::get('/currency/{name}','CurrencyController@getCurrencyInfo', function($name){
+return view ('currency');
 });

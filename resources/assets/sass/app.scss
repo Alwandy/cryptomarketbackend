@@ -2,8 +2,48 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
-// Variables
-@import "variables";
+body {
+    background-color:grey;
+}
+.navbar {
+    background: #1e5799; /* Old browsers */
+    
+}
+.nav-link{
+    color:white !important;
+    font-family: 'Montserrat', sans-serif;  
+    margin:3px;  
+}
+a:hover {
+    font-size:15px;
+}
 
-// Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+.cover{
+    color: rgb(255, 255, 255);
+    position: relative;
+    min-height: 600px;
+    background: #1e5799 ; /* Old browsers */
+    
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;      
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;      
+    font-size:15px;
+}
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}

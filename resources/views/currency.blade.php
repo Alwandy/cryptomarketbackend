@@ -1,3 +1,7 @@
+<?php 
+setlocale(LC_MONETARY, 'en_US');
+use \App\Http\Controllers\CurrencyController;
+?>
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
@@ -75,6 +79,7 @@
                   </tr>
                 </thead>
                 <tbody>
+                <!-- DISPLAY CURRENCY INFO -->                
                   <tr>
                     <td>{{$currency['FROMSYMBOL']}}</td>
                     <td>${{formatNumber((float)$currency['MKTCAP'])}}</td>
@@ -87,5 +92,10 @@
                   </tr>
                 </tbody>
               </table>
+              <div style="width:70%;padding:5px;">
+                <!-- GRAPH DRAWER -->
+                        {!!CurrencyController::drawGraphs($currency['FROMSYMBOL'])!!}
+                        </div>
     </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 </html>

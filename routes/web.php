@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/','CurrencyController@getCurrencyList', function () {
+Route::get('/','WelcomeController@index', function () {
     return view('welcome');
 });
 

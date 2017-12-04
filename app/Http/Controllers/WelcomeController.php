@@ -6,19 +6,33 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 
-
-class CurrencyController extends Controller
+class WelcomeController extends Controller
 {
-
-
-    public function getCurrencyInfo($name){
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $client = new \GuzzleHttp\Client();
+        $request = $client->get('https://www.cryptocompare.com/api/data/coinlist/');
+        $arrays = json_decode($request->getBody(), true);
+        usort($arrays['Data'], make_comparer('SortOrder'));
+        return view('welcome')->with('currencies', $arrays['Data']);
+    }
+    /**
+     * Display Currency Info
+     * @return $currency
+     */
+    public static function getCurrencyInfo($name, $data) {
         $client = new \GuzzleHttp\Client();
         $request = $client->get('https://min-api.cryptocompare.com/data/pricemultifull?fsyms='.$name.'&tsyms=USD');
         $arrays = json_decode($request->getBody(), true);
-       return view('currency')->with('currency', $arrays['RAW'][$name]['USD']);
+        $currency = $arrays['RAW'][$name]['USD'][$data];
+        return $currency;
     }
-
-     /**
+    /**
      * DRAW THE GRAPH
      * @return $chartjs->render();
      * DOCUMENTATION: https://github.com/fxcosta/laravel-chartjs
@@ -48,5 +62,4 @@ class CurrencyController extends Controller
         return $chartjs->render();
     }
 
-    
 }

@@ -18,3 +18,7 @@ Route::get('/','WelcomeController@index', function () {
 Route::get('/currency/{name}','CurrencyController@getCurrencyInfo', function($name){
 return view ('currency');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

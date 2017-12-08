@@ -10,14 +10,6 @@ function formatNumber($number)
    return number_format($number, 2, '.', ',');
 }
 
-
- function getCurrency($name){
-    $client = new \GuzzleHttp\Client();
-    $request = $client->get('https://min-api.cryptocompare.com/data/pricemultifull?fsyms='.$name.'&tsyms=USD');
-    $arrays = json_decode($request->getBody(), true);
-    return view('welcome')->with('data', $arrays['RAW'][$name]['USD']);
-}
-
  function make_comparer() {
     // Normalize criteria up front so that the comparer finds everything tidy
     $criteria = func_get_args();

@@ -19,46 +19,7 @@ use \App\Http\Controllers\CurrencyController;
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     </head>
     <body>
-    <div class="cover">
-    <div class="clearfix"></div>
-    <nav class="navbar navbar-expand-lg">
-            <span class="navbar-brand mb-0 h1">NeuMarketCap</span>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse nav justify-content-end" id="navbarNav">
-              <ul class="nav justify-content-end">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Exchange</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Sponsors</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-          <div class="container" align="center" style="margin-top:150px">
-                <h1 class="text-center">Check today market currency worth!</h1>
-                <h3 class="text-center">NeuMarketCap provides you the need to browse worlds cryptocurrency and get list of verified exchanges</h3>
-               <br>
-                <div class="col-sm-3">          
-                <div class="input-group stylish-input-group">
-                                <input type="text" class="form-control"  placeholder="Search" >
-                                <span class="input-group-addon">
-                                    <button type="submit">
-                                        <span class="fa fa-search"></span>
-                                    </button>  
-                                </span>
-                            </div>
-                </div>
-            </div>
-        </div>
+    @include('partials.navigation')
         <!---- TABLE TO SHOW DATA(S) ---->
         <table class="table">
 <nav aria-label="breadcrumb" role="navigation">
@@ -85,7 +46,7 @@ use \App\Http\Controllers\CurrencyController;
                     <td>${{formatNumber((float)$currency['MKTCAP'])}}</td>
                     <td>${{formatNumber((float)$currency['PRICE'])}}</td>
                     <td>${{formatNumber((float)$currency['VOLUME24HOUR'])}}</td>
-                    <td>${{formatNumber((float)$currency['SUPPLY'])}}</td>
+                    <td>{{formatNumber((float)$currency['SUPPLY'])}}</td>
                     <td>{{round($currency['CHANGEPCT24HOUR'],2)}}%</td>
                     <td><button type="button" class="btn btn-primary">Buy</button></td>
 

@@ -8,12 +8,13 @@ use GuzzleHttp\Client;
 
 class WelcomeController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getAllCurrencies()
     {
         $client = new \GuzzleHttp\Client();
         $request = $client->get('https://www.cryptocompare.com/api/data/coinlist/');

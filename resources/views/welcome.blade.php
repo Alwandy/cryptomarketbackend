@@ -60,6 +60,5 @@ use \App\Http\Controllers\WelcomeController;
                 </tbody>
               </table>
     </body>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    @include('partials.footer')
 </html>

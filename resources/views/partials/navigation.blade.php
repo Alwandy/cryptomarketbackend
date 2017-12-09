@@ -21,21 +21,16 @@
                 </li>
                 @guest
                 <li class="nav-item">
-                  <a class="nav-link disabled" href="{{ route('login') }}">Login</a>
+                  <a class="nav-link disabled" href="{{route('login')}}">Login</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link disabled" href="{{ route('register') }}">Register</a>
+                  <a class="nav-link disabled" href="{{route('register')}}">Register</a>
                 </li>
-                @else
-
-                <!-- Example split danger button -->
-<div class="btn-group">
-  <button type="button" class="btn btn-danger"> {{ Auth::user()->name }} <span class="caret"></span></button>
-  <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="sr-only">Toggle Dropdown</span>
-  </button>
-  <div class="dropdown-menu">
-  <a href="{{ route('logout') }}"
+                @else 
+                <li class="dropdown">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}} <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+  <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
@@ -43,18 +38,14 @@
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Separated link</a>
-  </div>
-</div>
-                        @endguest
+    <a class="dropdown-item" href="/dashboard">Dashboard</a>
+    </ul>
+</li>                        @endguest
               </ul>
             </div>
           </nav>
           <div class="container" align="center" style="margin-top:150px">
-                <h1 class="text-center">Check today market currency worth!</h1>
+                <h1 class="text-center">Check today's market currency worth!</h1>
                 <h3 class="text-center">NeuMarketCap provides you the need to browse worlds cryptocurrency and get list of verified exchanges</h3>
                <br>
                 <div class="col-sm-3">          

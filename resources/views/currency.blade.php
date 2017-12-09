@@ -58,5 +58,5 @@ use \App\Http\Controllers\CurrencyController;
                         {!!CurrencyController::drawGraphs($currency['FROMSYMBOL'])!!}
                         </div>
     </body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    @include('partials.footer')
 </html>
